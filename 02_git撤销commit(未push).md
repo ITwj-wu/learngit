@@ -1,4 +1,4 @@
-### 版本回退
+### 撤销commit(未push)
 
 - 查看历史记录
 
@@ -8,9 +8,26 @@
   $ git log --pretty=online //记录简洁显示
   ```
 
-- 回退版本
+- 撤销commit一般用git reset
 
   ```bash
+  //语法如下
+  $ git reset [--mixed | --soft |--hard][<commit ID>]
+  
+  //1. 使用参数--mixed(默认参数)
+  //撤销git commit,撤销git add,保留编辑器改动代码
+  $ git reset --mixed <commit ID> 或
+  $ git reset <commit ID>
+  
+  //2.使用参数--soft
+  //撤销git commit,不撤销git add,保留编辑器改动代码
+  $ git reset --soft <commit ID>
+  
+  //3.使用参数--hard
+  //撤销git commit,撤销git add,删除编辑器改动代码
+  //此方法非常暴力，全部撤销，慎用
+  $ git reset --hard <commit ID>
+  
   //回退到上个版本
   $ git reset --hard HEAD^
   
